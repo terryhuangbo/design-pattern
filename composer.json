@@ -12,8 +12,5 @@
         "psr-4": {
             "Patterns\\": "patterns/"
         }
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^5.7"
     }
 }
