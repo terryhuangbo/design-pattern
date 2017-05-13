@@ -1,0 +1,16 @@
+{
+    "name": "31210/design-pattern",
+    "description": "design patterns for PHP",
+    "authors": [
+        {
+            "name": "Huangbo",
+            "email": "huangbo@yunshan.net.cn"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Patterns\\": "patterns/"
+        }
+    }
+}
