@@ -6,9 +6,9 @@ use Patterns\Observer\Interfaces\Observer;
 
 class Observer2 extends Observer
 {
-    public function update($argument)
+    public function update($arguments)
     {
-        print_r('Observer2 has been updated');
-        print_r('the argument is :'.$argument);
+        var_dump('Observer2 has been updated');
+        var_dump('the arguments are : '.$arguments);
     }
 }

@@ -3,14 +3,14 @@
 namespace Patterns\Observer\Interfaces;
 
 /**
- * Interface Observer.
+ * Abstract Class Observer.
  */
 abstract class Observer implements ObserverInterface
 {
     /**
-     * @var Subject| Observer 被观察者
+     * @var Subject 被观察者
      */
-    private $subject;
+    protected $subject;
 
     public function __construct(Subject $subject)
     {

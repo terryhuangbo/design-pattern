@@ -6,10 +6,11 @@ use Patterns\Observer\Interfaces\Subject as AbstractSubject;
 
 class Subject extends AbstractSubject
 {
-    public function change($argument = '')
+    public function change($arguments = '')
     {
         //do something else
 
-        $this->notify($argument);
+        var_dump($this->getName().' begins to change!');
+        $this->notify($arguments);
     }
 }

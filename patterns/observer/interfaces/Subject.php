@@ -3,7 +3,7 @@
 namespace Patterns\Observer\Interfaces;
 
 /**
- * Class Subject.
+ * Abstract Class Subject.
  */
 abstract class Subject implements SubjectInterface
 {
@@ -51,6 +51,14 @@ abstract class Subject implements SubjectInterface
     }
 
     /**
+     * 取消所有关注.
+     */
+    public function detachAll()
+    {
+        $this->observers = [];
+    }
+
+    /**
      * 通知观察者.
      *
      * @param $argument
@@ -65,5 +73,5 @@ abstract class Subject implements SubjectInterface
     /**
      *  Subject changes its status.
      */
-    abstract public function change($argument);
+    abstract public function change($arguments);
 }
