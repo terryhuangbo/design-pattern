@@ -12,16 +12,34 @@ abstract class Observer implements ObserverInterface
      */
     protected $subject;
 
+    /**
+     * Observer constructor.
+     *
+     * @param Subject $subject
+     */
     public function __construct(Subject $subject)
     {
         $this->subject = $subject;
+    }
+
+    /**
+     * 关注.
+     */
+    public function attach()
+    {
         $this->subject->attach($this);
     }
 
     /**
-     * @param $argument
-     *
+     * 取消关注.
+     */
+    public function detach()
+    {
+        $this->subject->detach($this);
+    }
+
+    /**
      * @return mixed
      */
-    abstract public function update($argument);
+    abstract public function update();
 }

@@ -8,9 +8,17 @@ namespace Patterns\Observer\Interfaces;
 interface ObserverInterface
 {
     /**
-     * @param $argument
-     *
+     * 关注.
+     */
+    public function attach();
+
+    /**
+     * 取消关注.
+     */
+    public function detach();
+
+    /**
      * @return mixed
      */
-    public function update($argument);
+    public function update();
 }

@@ -11,20 +11,6 @@ abstract class Subject implements SubjectInterface
      * @var Observer[] 观察者列表
      */
     protected $observers = [];
-    protected $name;
-
-    public function __construct($name)
-    {
-        $this->name = $name;
-    }
-
-    /**
-     * @return mixed 获取观察者的名称
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
 
     /**
      * 关注.
@@ -43,10 +29,9 @@ abstract class Subject implements SubjectInterface
      */
     public function detach(Observer $observer)
     {
-        foreach ($this->observers as $key => $val) {
-            if ($observer == $val) {
-                unset($this->observers[$key]);
-            }
+        $index = array_search($observer, $this->observers);
+        if ($index !== false) {
+            unset($this->observers[$index]);
         }
     }
 
@@ -60,18 +45,18 @@ abstract class Subject implements SubjectInterface
 
     /**
      * 通知观察者.
-     *
-     * @param $argument
      */
-    public function notify($argument)
+    public function notify()
     {
+        $args = func_get_args();
+
         foreach ($this->observers as $observer) {
-            $observer->update($argument);
+            $observer->update(...$args);
         }
     }
 
     /**
      *  Subject changes its status.
      */
-    abstract public function change($arguments);
+    abstract public function change();
 }

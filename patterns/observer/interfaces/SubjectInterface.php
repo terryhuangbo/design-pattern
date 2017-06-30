@@ -23,8 +23,6 @@ interface SubjectInterface
 
     /**
      * 通知观察者.
-     *
-     * @param $argument
      */
-    public function notify($argument);
+    public function notify();
 }
