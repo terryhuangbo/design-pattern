@@ -3,9 +3,14 @@
 namespace Patterns;
 
 /**
- * Test interface.
+ * Interface TestInterface.
  */
 interface TestInterface
 {
+    /**
+     * @param $argument
+     *
+     * @return mixed
+     */
     public function run($argument);
 }
