@@ -2,6 +2,7 @@
 
 namespace Patterns\Composite;
 
+use Patterns\Composite\Dir\Directory;
 use Patterns\Composite\Menu\Menu;
 use Patterns\Composite\Menu\MenuItem;
 use Patterns\Composite\Menu\Waitress;
@@ -56,5 +57,18 @@ class Test implements TestInterface
 
         $waitress = new Waitress($allMenus);
         $waitress->printMenu();
+
+        echo '<br><br>';
+
+        $dir = new Directory((__DIR__));
+        $dir->printOut();
+
+        echo '<br><br>';
+
+        $recusive = new \RecursiveIteratorIterator($dir, \RecursiveIteratorIterator::SELF_FIRST);
+        foreach ($recusive as $file) {
+            //            if ($file->isFile())
+            print_r(str_repeat('&nbsp;', ($file->getLevel() - 1) * 4).$file->fileName().'<br>');
+        }
     }
 }

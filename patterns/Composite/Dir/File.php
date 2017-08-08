@@ -1,30 +1,25 @@
 <?php
 
-namespace Patterns\Composite\Menu;
+namespace Patterns\Composite\Dir;
 
 use Patterns\Composite\Leaf;
 
-class MenuItem extends Leaf
+class File extends Leaf
 {
     /**
      * @var
      */
     protected $name;
-    /**
-     * @var
-     */
-    protected $description;
 
     /**
      * Leaf constructor.
      *
      * @param $name
-     * @param $description
      */
-    public function __construct($name, $description)
+    public function __construct($name, $level = 0)
     {
         $this->name = $name;
-        $this->description = $description;
+        $this->level = $level + 1;
     }
 
     /**
@@ -60,14 +55,33 @@ class MenuItem extends Leaf
     /**
      * Do something.
      */
-    public function printMenu()
+    public function printOut()
     {
-        $msg = '';
+        $msg = str_repeat('&nbsp;', ($this->getLevel() - 1) * 4);
         $msg .= $this->getName();
-        $msg .= ': ';
-        $msg .= $this->getDescription();
         $msg .= '<br>';
 
         print_r($msg);
+    }
+
+    public function fileName()
+    {
+        return basename($this->name);
+    }
+
+    /**
+     * @return bool
+     */
+    public function isDir()
+    {
+        return false;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isFile()
+    {
+        return true;
     }
 }

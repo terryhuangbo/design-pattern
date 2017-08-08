@@ -8,6 +8,11 @@ namespace Patterns\Composite;
 abstract class Component
 {
     /**
+     * @var int
+     */
+    protected $level = 0;
+
+    /**
      * @param Component $component
      *
      * @throws UnsupportedOperationException
@@ -28,11 +33,9 @@ abstract class Component
     }
 
     /**
-     * @param $key
-     *
      * @throws UnsupportedOperationException
      */
-    public function getChild($key)
+    public function createIterator()
     {
         throw new UnsupportedOperationException();
     }
@@ -54,11 +57,19 @@ abstract class Component
     }
 
     /**
+     * @throws UnsupportedOperationException
+     */
+    public function getLevel()
+    {
+        return $this->level;
+    }
+
+    /**
      * Do something.
      *
      * @throws UnsupportedOperationException
      */
-    public function operation()
+    public function printMenu()
     {
         throw new UnsupportedOperationException();
     }

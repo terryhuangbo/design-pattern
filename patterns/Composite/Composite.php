@@ -5,32 +5,17 @@ namespace Patterns\Composite;
 /**
  * Class Composite.
  */
-class Composite extends Component implements \IteratorAggregate
+abstract class Composite extends Component implements \RecursiveIterator
 {
     /**
-     * @var
+     * @var bool
      */
-    private $name;
-    /**
-     * @var
-     */
-    private $description;
-    /**
-     * @var \ArrayObject
-     */
-    private $items;
+    private $valid = false;
 
     /**
-     * Leaf constructor.
-     *
-     * @param $name
-     * @param $description
+     * @var array
      */
-    public function __construct($name, $description)
-    {
-        $this->name = $name;
-        $this->description = $description;
-    }
+    protected $items = [];
 
     /**
      * {@inheritdoc}
@@ -53,79 +38,66 @@ class Composite extends Component implements \IteratorAggregate
     }
 
     /**
-     * {@inheritdoc}
+     * @return \ArrayIterator
      */
-    public function getChild($key)
-    {
-        return $this->items[$key] ?: null;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getIterator()
+    public function createIterator()
     {
         return new \ArrayIterator($this->items);
     }
 
     /**
-     * Do something.
-     *
-     * @throws UnsupportedOperationException
+     * @return mixed
      */
-    public function operation()
+    public function current()
     {
-        $msg = '';
-        $msg .= $this->name;
-        $msg .= ': ';
-        $msg .= $this->description;
-        $msg .= '<br>';
-        print_r($msg);
-
-        $iterator = $this->getIterator();
-        while ($iterator->valid()) {
-            $component = $iterator->current();
-
-            // Call operation recursively
-            $component->operation();
-
-            $iterator->next();
-        }
+        return current($this->items);
     }
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function __toString()
+    public function next()
     {
-        $msg = '';
-        $msg .= $this->name;
-        $msg .= ': ';
-        $msg .= $this->description;
-        $msg .= '<br>';
+        $this->valid = (next($this->items) !== false);
+    }
 
-        $iterator = $this->createIterator();
-        while ($iterator->valid()) {
-            $component = $iterator->next();
-            $msg .= $component;
-        }
+    /**
+     * @return mixed
+     */
+    public function key()
+    {
+        return key($this->items);
+    }
 
-        return $msg;
+    /**
+     * @return mixed
+     */
+    public function valid()
+    {
+        return $this->valid;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function rewind()
+    {
+        $this->valid = (reset($this->items) !== false);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function hasChildren()
+    {
+        return $this->current() instanceof self;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getChildren()
+    {
+        return $this->current();
     }
 }

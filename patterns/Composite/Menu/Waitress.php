@@ -22,12 +22,25 @@ class Waitress
 
     public function printMenu()
     {
-        $this->allMenus->operation();
+        $this->allMenus->printMenu();
     }
 
     public function printObject()
     {
         echo '<pre>';
         print_r($this->allMenus);
+    }
+
+    public function recursiveMenuItem()
+    {
+        $recursive = new \RecursiveIteratorIterator($this->allMenus);
+        $recursive->rewind();
+        while ($recursive->valid()) {
+            $component = $recursive->current();
+
+            print_r($component->operation().'<br>');
+
+            $recursive->next();
+        }
     }
 }
