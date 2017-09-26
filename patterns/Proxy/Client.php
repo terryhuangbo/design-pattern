@@ -1,6 +1,6 @@
 <?php
 
-namespace Patterns\Proxy;
+namespace Patterns\Builder;
 
 class Client
 {
