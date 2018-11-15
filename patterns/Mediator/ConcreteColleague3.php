@@ -30,6 +30,6 @@ class ConcreteColleague3 extends Colleague
      */
     public function notify($message)
     {
-        echo 'ConcreteColleague2 m:', $message, '<br/>';
+        echo 'ConcreteColleague3 m:', $message, '<br/>';
     }
 }

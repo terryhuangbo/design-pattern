@@ -2,8 +2,6 @@
 
 namespace Patterns\Filter\Criteria;
 
-use Patterns\Filter\Person;
-
 /**
  * Class AndCriteria.
  */
@@ -25,9 +23,9 @@ class AndCriteria implements Criteria
     }
 
     /**
-     * @param Person[] $persons
+     * @param \Patterns\Filter\Person[] $persons
      *
-     * @return mixed
+     * @return \Patterns\Filter\Person[] $persons
      */
     public function meet(array $persons)
     {

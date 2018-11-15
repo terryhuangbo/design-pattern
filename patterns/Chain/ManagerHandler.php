@@ -18,17 +18,20 @@ class ManagerHandler extends Handler
     }
 
     /**
-     * @param $request
+     * @param Request $request
      *
      * @return bool|mixed
      */
-    public function handleRequest($request)
+    public function handleRequest(Request $request)
     {
-        echo $this->handlerName, ' was signed <br/>'; //部门经理签字
+        //表示责任传递到部门经理这里来了
+        echo $this->handlerName, ' was signed <br/>';
+
         // 这是Manager的权限范围，Manager截留请求，处理请求然后返回
         if ($request->getDay() > 0.5 && $request->getDay() <= 3) {
             return $this->success($request);
         }
+
         //如果自己处理不了，传递给下一位处理者
         if ($this->handler instanceof Handler) {
             return $this->handler->handleRequest($request);

@@ -2,12 +2,10 @@
 
 namespace Patterns\AbstractFactory\PizzaStore;
 
-
 use Patterns\AbstractFactory\Pizza\Pizza;
 
 /**
- * Class PizzaStore
- * @package Patterns\AbstractFactory\PizzaStore
+ * Class PizzaStore.
  */
 abstract class PizzaStore
 {
@@ -18,11 +16,12 @@ abstract class PizzaStore
 
     /**
      * @param $type
+     *
      * @return Pizza
      */
     public function orderPizza($type)
     {
-        // create a Pizza
+        // create a pizza
         $this->pizza = $this->createPizza($type);
 
         // handle the pizza
@@ -36,9 +35,10 @@ abstract class PizzaStore
     }
 
     /**
-     * Create a Pizza
+     * Create a Pizza.
      *
      * @param $type
+     *
      * @return Pizza
      */
     abstract protected function createPizza($type);

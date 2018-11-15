@@ -5,7 +5,7 @@ error_reporting(E_ERROR);
 
 $baseDir = '/design-pattern';
 
-if (strpos($_SERVER['REQUEST_URI'], $baseDir) !== 0) {
+if (0 !== strpos($_SERVER['REQUEST_URI'], $baseDir)) {
     exit('error');
 }
 
@@ -15,4 +15,4 @@ $className = $pathArr[2];
 
 $class = 'Patterns\\'.ucfirst($className).'\\Test';
 
-(new $class())->run();
+(new $class())->run(1);

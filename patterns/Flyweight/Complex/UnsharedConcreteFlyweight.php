@@ -7,6 +7,9 @@ namespace Patterns\Flyweight\Complex;
  */
 class UnsharedConcreteFlyweight extends Flyweight
 {
+    /**
+     * @var Flyweight[]
+     */
     private $_flyweights;
 
     /**
@@ -17,6 +20,9 @@ class UnsharedConcreteFlyweight extends Flyweight
         $this->_flyweights = array(); // 可以为迭代器
     }
 
+    /**
+     * @param string $state
+     */
     public function operation($state)
     {
         foreach ($this->_flyweights as $flyweight) {
@@ -24,6 +30,10 @@ class UnsharedConcreteFlyweight extends Flyweight
         }
     }
 
+    /**
+     * @param $state
+     * @param Flyweight $flyweight
+     */
     public function add($state, Flyweight $flyweight)
     {
         $this->_flyweights[$state] = $flyweight;

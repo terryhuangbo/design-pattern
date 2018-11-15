@@ -8,7 +8,7 @@ use Patterns\Builder\Item\Pepsi;
 use Patterns\Builder\Item\VegBurger;
 
 /**
- * 创建一个 MealBuilder 类，实际的 builder 类负责创建 Meal 对象
+ * 创建一个MealBuilder类，实际的builder类负责创建Meal对象
  */
 class MealBuilder
 {

@@ -12,13 +12,21 @@ class GeneralManagerHandler extends Handler
         $this->handlerName = $handlerName;
     }
 
-    public function handleRequest($request)
+    /**
+     * @param Request $request
+     *
+     * @return bool|mixed
+     */
+    public function handleRequest(Request $request)
     {
-        echo $this->handlerName, ' was signed <br/>'; //总经理签字
+        //表示责任传递到总经理这里来了
+        echo $this->handlerName, ' was signed <br/>';
+
         //这是GeneralManager的权限范围，GeneralManager截留请求，处理请求然后返回
         if (3 < $request->getDay()) {
             return $this->success($request);
         }
+
         //如果自己处理不了，传递给下一位处理者
         if ($this->handler instanceof Handler) {
             return $this->handler->handleRequest($request);

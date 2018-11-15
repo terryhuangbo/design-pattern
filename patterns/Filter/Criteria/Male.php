@@ -8,15 +8,15 @@ namespace Patterns\Filter\Criteria;
 class Male implements Criteria
 {
     /**
-     * @param Person[] $persons
+     * @param \Patterns\Filter\Person[] $persons
      *
-     * @return mixed
+     * @return \Patterns\Filter\Person[] $persons
      */
     public function meet(array $persons)
     {
         $malePerson = array();
         foreach ($persons as $person) {
-            if (strcasecmp($person->getGender(), 'MALE') === 0) {
+            if (0 === strcasecmp($person->getGender(), 'MALE')) {
                 $malePerson[] = $person;
             }
         }

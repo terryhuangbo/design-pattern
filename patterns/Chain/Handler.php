@@ -3,9 +3,9 @@
 namespace Patterns\Chain;
 
 /**
- * 加入在公司里，如果你的请假时间小于0.5天，那么只需要向leader打声招呼就OK了。
+ * 假如在公司里，如果你的请假时间小于0.5天，那么只需要向leader打声招呼就OK了。
  * 如果0.5<请假天数<=3天，需要先leader打声招呼，要不然leader不知你跑哪里，然后部门经理直接签字。
- * 如果3<请假天数天，需要先leader打声招呼，然后到部门经理签字，最后总经经理确认签字，
+ * 如果3<请假天数，需要先leader打声招呼，然后到部门经理签字，最后总经经理确认签字，
  * 这样就是个list。也是个不纯的职责链，因为每个对象可能处理一部分后，就需要传给下个对象来处理。
  */
 
@@ -38,7 +38,7 @@ abstract class Handler
     }
 
     /**
-     * @param $request
+     * @param Request $request
      *
      * @return bool
      */
@@ -50,9 +50,9 @@ abstract class Handler
     }
 
     /**
-     * @param $request
+     * @param Request $request
      *
      * @return mixed
      */
-    abstract public function handleRequest($request);
+    abstract public function handleRequest(Request $request);
 }

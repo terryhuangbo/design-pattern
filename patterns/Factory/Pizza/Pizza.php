@@ -3,8 +3,7 @@
 namespace Patterns\Factory\Pizza;
 
 /**
- * Class Pizza
- * @package Patterns\Factory\Pizza
+ * Class Pizza.
  */
 abstract class Pizza
 {
@@ -25,42 +24,30 @@ abstract class Pizza
      */
     protected $toppings = [];
 
-    /**
-     * @return void
-     */
     public function prepare()
     {
-        print_r("Preparing ".$this->name . '<br>');
-        print_r("Tossing dough..." . '<br>');
-        print_r("Adding sauce..." . '<br>');
-        print_r("Adding toppings..." . '<br>');
+        print_r('Preparing '.$this->name.'<br>');
+        print_r('Tossing dough...'.'<br>');
+        print_r('Adding sauce...'.'<br>');
+        print_r('Adding toppings...'.'<br>');
         foreach ($this->toppings as $topping) {
-            print_r("   $topping"  . '<br>');
+            print_r("$topping".'<br>');
         }
     }
 
-    /**
-     * @return void
-     */
     public function bake()
     {
-        print_r("Bake: Bake for 25 minutes at 350" . '<br>');
+        print_r('Bake: Bake for 25 minutes at 350'.'<br>');
     }
 
-    /**
-     * @return void
-     */
     public function cut()
     {
-        print_r("Cut: Cutting the pizza into diagonal slices" . '<br>');
+        print_r('Cut: Cutting the pizza into diagonal slices'.'<br>');
     }
 
-    /**
-     * @return void
-     */
     public function box()
     {
-        print_r("Box: Place pizza in official PizzaStore box" . '<br>');
+        print_r('Box: Place pizza in official PizzaStore box'.'<br>');
     }
 
     /**
@@ -70,6 +57,4 @@ abstract class Pizza
     {
         return $this->name;
     }
-
-
 }

@@ -11,7 +11,7 @@ class Waiter
         $vegMeal = $mealBuilder->prepareVegMeal();
         print_r('<b>Veg Meal:</b> <br>');
         $vegMeal->showItems();
-        print_r('<br>'.'Total Cost: '.$vegMeal->getCost());
+        print_r('Total Cost: '.$vegMeal->getCost());
 
         print_r('<br><br><br>');
 

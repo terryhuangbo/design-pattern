@@ -5,8 +5,14 @@ namespace Patterns\Flyweight\Complex;
 /**
  * 享元工厂角色.
  */
+/**
+ * Class FlyweightFactory.
+ */
 class FlyweightFactory
 {
+    /**
+     * @var Flyweight[]
+     */
     private $_flyweights;
 
     public function __construct()
@@ -14,6 +20,11 @@ class FlyweightFactory
         $this->_flyweights = array();
     }
 
+    /**
+     * @param $state
+     *
+     * @return mixed|null|ConcreteFlyweight|UnsharedConcreteFlyweight
+     */
     public function getFlyweigth($state)
     {
         if (is_array($state)) { //  组合模式

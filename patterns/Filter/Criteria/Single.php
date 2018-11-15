@@ -8,15 +8,15 @@ namespace Patterns\Filter\Criteria;
 class Single implements Criteria
 {
     /**
-     * @param array $persons
+     * @param \Patterns\Filter\Person[] $persons
      *
-     * @return mixed
+     * @return \Patterns\Filter\Person[] $persons
      */
     public function meet(array $persons)
     {
         $singlePerson = array();
         foreach ($persons as $person) {
-            if (strcasecmp($person->getMaritalStatus(), 'SINGLE') === 0) {
+            if (0 === strcasecmp($person->getMaritalStatus(), 'SINGLE')) {
                 $singlePerson[] = $person;
             }
         }

@@ -81,7 +81,7 @@ class Color extends ColorPrototype
     /**
      * 克隆该对象。如果是深拷贝用clone，如果是浅拷贝就直接返回.
      *
-     * @return mixed
+     * @return static
      */
     public function copy()
     {

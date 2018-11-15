@@ -2,10 +2,8 @@
 
 namespace Patterns\AbstractFactory\Interfaces;
 
-
 /**
- * Interface PizzaIngredientFactory
- * @package Patterns\AbstractFactory\Interfaces
+ * Interface PizzaIngredientFactory.
  */
 interface PizzaIngredientFactory
 {
@@ -33,6 +31,4 @@ interface PizzaIngredientFactory
      * @return Clams
      */
     public function createClams();
-
-
 }

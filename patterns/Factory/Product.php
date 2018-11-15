@@ -2,14 +2,11 @@
 
 namespace Patterns\Factory;
 
-
 /**
- * Abstract Class Product
- * @package Patterns\Factory
+ * Abstract Class Product.
  */
 abstract class Product
 {
-
     /**
      * @var
      */
@@ -24,20 +21,14 @@ abstract class Product
      */
     protected $attribute2;
 
-    /**
-     * @return void
-     */
     public function process1()
     {
-        print_r("The product is under procedure 1". '<br>');
+        print_r('The product is under procedure 1'.'<br>');
     }
 
-    /**
-     * @return void
-     */
     public function process2()
     {
-        print_r("The product is under procedure 2". '<br>');
+        print_r('The product is under procedure 2'.'<br>');
     }
 
     /**
@@ -63,6 +54,4 @@ abstract class Product
     {
         return $this->attribute2;
     }
-
-
 }

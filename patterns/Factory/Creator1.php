@@ -2,28 +2,25 @@
 
 namespace Patterns\Factory;
 
-
 /**
- * Class Creator
- * @package Patterns\Factory
+ * Class Creator.
  */
 class Creator1 extends Creator
 {
     /**
      * Create a product.
      *
-     * @param  mixed $type
+     * @param mixed $type
+     *
      * @return Product
      */
     protected function factoryMethod($type)
     {
-        if ($type == 'product1') {
+        if ('product1' == $type) {
             return new Product1();
-        } elseif ($type == 'product2') {
+        } elseif ('product2' == $type) {
             return new Product2();
         }
         // ... get more Product here
     }
-
-
 }

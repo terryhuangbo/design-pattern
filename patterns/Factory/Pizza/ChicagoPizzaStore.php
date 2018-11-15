@@ -2,25 +2,22 @@
 
 namespace Patterns\Factory\Pizza;
 
-
 /**
- * Class ChicagoPizzaStore
- * @package Patterns\Factory\Pizza
+ * Class ChicagoPizzaStore.
  */
 class ChicagoPizzaStore extends PizzaStore
 {
     /**
      * @param $type
+     *
      * @return Pizza
      */
     public function createPizza($type)
     {
-        if ($type == "cheese") {
+        if ('cheese' == $type) {
             return new ChicagoStyleCheesePizza();
-        } elseif ($type == 'clam') {
+        } elseif ('clam' == $type) {
             return new ChicagoStyleClamPizza();
         }
     }
-
-
 }

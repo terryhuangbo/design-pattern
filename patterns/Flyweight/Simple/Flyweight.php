@@ -3,7 +3,7 @@
 namespace Patterns\Flyweight\Simple;
 
 /**
- * 简单享元模式　
+ * 简单享元模式.
  *
  * @author guisu
  */

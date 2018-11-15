@@ -31,7 +31,7 @@ class ColorManager
      *
      * @param $name
      *
-     * @return mixed
+     * @return Color
      */
     public static function getCopy($name)
     {

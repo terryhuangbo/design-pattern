@@ -48,9 +48,9 @@ class Meal
         $str = '';
 
         foreach ($this->items as $item) {
-            $str .= 'Item: '.$item->getName().'<br>';
+            $str .= '<b>Item:</b> '.$item->getName().'<br>';
             $str .= 'Packing : '.$item->getPacking()->pack().'<br>';
-            $str .= 'Price  : '.$item->getPrice();
+            $str .= 'Price  : '.$item->getPrice().'<br><br>';
         }
 
         print_r($str);
