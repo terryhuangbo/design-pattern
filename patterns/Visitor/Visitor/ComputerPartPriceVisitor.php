@@ -7,7 +7,7 @@ use Patterns\Visitor\ComputerPart\Monitor;
 use Patterns\Visitor\ComputerPart\Mouse;
 
 /**
- * Class ComputerPartPriceVisitor.
+ * 具体类实现的算法——计算各部分价格
  */
 class ComputerPartPriceVisitor implements ComputerPartVisitor
 {

@@ -6,6 +6,9 @@ use Patterns\Visitor\ComputerPart\Keyboard;
 use Patterns\Visitor\ComputerPart\Monitor;
 use Patterns\Visitor\ComputerPart\Mouse;
 
+/**
+ * 具体类实现的算法——展示.
+ */
 class ComputerPartDisplayVisitor implements ComputerPartVisitor
 {
     /**
