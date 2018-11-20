@@ -7,8 +7,14 @@ namespace Patterns\Proxy;
  */
 class ProxyWeather implements Weather
 {
+    /**
+     * @var RealWeather
+     */
     private $_client;
 
+    /**
+     * @return RealWeather
+     */
     private function client()
     {
         // 这是延迟代理的关键
@@ -22,11 +28,6 @@ class ProxyWeather implements Weather
     public function request($city)
     {
         $this->client()->request($city);
-    }
-
-    public function isValidCity($city)
-    {
-        return $this->client()->isValidCity($city);
     }
 
     public function display($city)

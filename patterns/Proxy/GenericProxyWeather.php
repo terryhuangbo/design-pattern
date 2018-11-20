@@ -4,12 +4,23 @@ namespace Patterns\Proxy;
 
 /**
  * 代理角色(Proxy):动态代理.
+ *
+ * @method request()
+ * @method display()
  */
 class GenericProxyWeather
 {
+    /**
+     * @var Weather
+     */
     protected $_subject;
 
-    public function __construct($subject)
+    /**
+     * GenericProxyWeather constructor.
+     *
+     * @param Weather $subject
+     */
+    public function __construct(Weather $subject)
     {
         $this->_subject = $subject;
     }

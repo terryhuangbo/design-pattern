@@ -10,6 +10,5 @@ class Test implements TestInterface
     {
         header('Content-type:text/html;charset=UTF-8');
         Client::main();
-        //Client::Genericmain();
     }
 }

@@ -10,6 +10,4 @@ interface Weather
     public function request($city);
 
     public function display($city);
-
-    public function isValidCity($city);
 }
